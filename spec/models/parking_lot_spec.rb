@@ -17,4 +17,19 @@ describe "ParkingLot" do
       expect(parking_lot.first_available_spot(car)).to eq spot3
     end
   end
+
+  describe "#select_for_multispot" do
+    it "determines the best combination of vehicles to fit in the special parking spot to optimize profit" do
+      jaguar   = Car.new(size: 45, price: 170, brand: "Jaguar"   )
+      mercedes = Car.new(size: 10, price: 100, brand: "Mercedes" )
+      dodge    = Car.new(size: 15, price: 50,  brand:  "Dodge"   )
+      audi     = Car.new(size: 15, price: 30,  brand:  "Audi"    )
+
+      parking_lot = ParkingLot.new([Spot.new(floor: 1, size: 10)])
+
+      selection = parking_lot.select_for_multispot([dodge, jaguar, mercedes, audi])
+
+      expect(selection).to eq [dodge, mercedes, audi]
+    end
+  end
 end
