@@ -19,7 +19,7 @@ audi     = Car.new(size: 15, price: 30,  brand:  "Audi"    )
 cars = [jaguar, mercedes, dodge, audi]
 
 
-# Initialize ParkingLog
+# Initialize ParkingLot
 parking_lot = ParkingLot.new(spots)
 
 # Find the first spot able to fit the Audi
